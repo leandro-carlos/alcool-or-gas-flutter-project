@@ -1,5 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:alcool_or_gas/widgetes/button.widget.dart';
 import 'package:alcool_or_gas/widgetes/form.widget.dart';
 import 'package:alcool_or_gas/widgetes/logo.widget.dart';
+import 'package:alcool_or_gas/widgetes/showResult.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 
@@ -28,31 +32,24 @@ class homePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).primaryColor,
-        body: ListView(
-          children: <Widget>[
-            logo(),
-            formField(
-              ctrl: gasCtrl,
-              label: "Alcool",
-            ),
-            formField(
-              ctrl: alcCtrl,
-              label: "Gasolina",
-            ),
-            Container(
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  "Calcular",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: "Big Shoulders Display",
-                      fontSize: 45),
-                ),
-              ),
-            )
-          ],
-        ));
+      backgroundColor: Theme.of(context).primaryColor,
+      body: ListView(
+        children: <Widget>[
+          logo(),
+          showResult(),
+          formField(
+            ctrl: gasCtrl,
+            label: "Alcool",
+          ),
+          formField(
+            ctrl: alcCtrl,
+            label: "Gasolina",
+          ),
+          buttonWidget(
+            label: "Calcular",
+          ),
+        ],
+      ),
+    );
   }
 }
