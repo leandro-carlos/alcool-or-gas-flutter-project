@@ -5,14 +5,14 @@ class logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        SizedBox(
+        const SizedBox(
           height: 60,
         ),
         Container(
           child: Image.asset("assets/images/aog-white.png"),
           height: 80,
         ),
-        Text(
+        const Text(
           "Alcool ou Gasolina",
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -21,7 +21,7 @@ class logo extends StatelessWidget {
             fontFamily: "Big Shoulders Display",
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
       ],

@@ -1,9 +1,7 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:alcool_or_gas/widgetes/button.widget.dart';
 import 'package:alcool_or_gas/widgetes/form.widget.dart';
+import 'package:alcool_or_gas/widgetes/loading-widget-button.dart';
 import 'package:alcool_or_gas/widgetes/logo.widget.dart';
-import 'package:alcool_or_gas/widgetes/showResult.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 
@@ -36,7 +34,11 @@ class homePage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           logo(),
-          showResult(),
+          loadingButton(
+              busy: true,
+              func: () {},
+              invert: false,
+              text: "Compensa mais alcool!"),
           formField(
             ctrl: gasCtrl,
             label: "Alcool",
@@ -45,9 +47,7 @@ class homePage extends StatelessWidget {
             ctrl: alcCtrl,
             label: "Gasolina",
           ),
-          buttonWidget(
-            label: "Calcular",
-          ),
+          buttonWidget(label: "Calcular")
         ],
       ),
     );
