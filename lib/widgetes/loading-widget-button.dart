@@ -1,4 +1,4 @@
-import 'button.widget.dart';
+import '../archives/button.widget.dart';
 import 'package:flutter/material.dart';
 
 class loadingButton extends StatelessWidget {
@@ -26,30 +26,23 @@ class loadingButton extends StatelessWidget {
           )
         : Container(
             margin: EdgeInsets.all(30),
-            alignment: Alignment.center,
             width: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              color: Colors.white.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(60),
+              color: invert
+                  ? Theme.of(context).primaryColor
+                  : Colors.white.withOpacity(0.8),
             ),
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 30,
+            child: TextButton(
+              onPressed: () {},
+              child: Text(
+                text,
+                style: TextStyle(
+                  color: invert ? Colors.white : Theme.of(context).primaryColor,
+                  fontFamily: "Big Shoulders Display",
+                  fontSize: 35,
                 ),
-                Text(
-                  text,
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 40,
-                    fontFamily: "Big Shoulders Display",
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                buttonWidget(
-                  label: "Calcular novamente",
-                ),
-              ],
+              ),
             ),
           );
   }

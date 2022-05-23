@@ -1,6 +1,5 @@
+// import 'package:alcool_or_gas/widgetes/loading-widget-button.dart';
 // import 'package:flutter/material.dart';
-
-// import 'button.widget.dart';
 
 // class showResult extends StatelessWidget {
 //   @override
@@ -12,7 +11,20 @@
 //         borderRadius: BorderRadius.circular(50),
 //       ),
 //       child: Column(
-//         children: <Widget>[],
+//         children: <Widget>[
+//           SizedBox(
+//             height: 15,
+//           ),
+//           Text(
+//             "Compensa mais alcool",
+//             style: TextStyle(
+//               color: Theme.of(context).primaryColor,
+//               fontSize: 25,
+//             ),
+//           ),
+//           loadingButton(
+//               busy: false, func: () {}, invert: false, text: "Calcular")
+//         ],
 //       ),
 //     );
 //   }
