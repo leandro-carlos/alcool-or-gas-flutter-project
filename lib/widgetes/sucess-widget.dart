@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'loading-widget-button.dart';
 
 class sucessWidget extends StatelessWidget {
+  var result = "";
+  Function reset;
+
+  sucessWidget({
+    required this.result,
+    required this.reset,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,10 +25,10 @@ class sucessWidget extends StatelessWidget {
             height: 15,
           ),
           Text(
-            "Compensa álcool",
+            result,
             style: TextStyle(
               color: Theme.of(context).primaryColor,
-              fontSize: 45,
+              fontSize: 43,
               fontFamily: "Big Shoulders Display",
             ),
           ),
@@ -28,10 +36,11 @@ class sucessWidget extends StatelessWidget {
             height: 5,
           ),
           loadingButton(
-              busy: false,
-              func: () {},
-              invert: false,
-              text: "Calcular novamente")
+            busy: false,
+            func: reset,
+            invert: false,
+            text: "Calcular novamente",
+          )
         ],
       ),
     );
