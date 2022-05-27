@@ -3,7 +3,7 @@ import 'loading-widget-button.dart';
 
 class sucessWidget extends StatelessWidget {
   var result = "";
-  Function reset;
+  Function()? reset;
 
   sucessWidget({
     required this.result,

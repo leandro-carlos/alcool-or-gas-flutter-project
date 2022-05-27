@@ -11,11 +11,11 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
-  var gasCtrl = MoneyMaskedTextController();
-  var alcCtrl = MoneyMaskedTextController();
-  var completed = false;
   var busy = false;
-  var resultText = "Compensa mais alcool";
+  var completed = false;
+  var resultText = "Compensa utilizar álcool";
+  var gasCtrl = new MoneyMaskedTextController();
+  var alcCtrl = new MoneyMaskedTextController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,25 +25,53 @@ class _homePageState extends State<homePage> {
         children: <Widget>[
           logo(),
           completed
-              ? sucessWidget(result: resultText, reset: () {})
+              ? sucessWidget(
+                  result: resultText,
+                  reset: reset,
+                )
               : submitForm(
-                  busy: busy,
-                  submit: calculate,
                   alcCtrl: alcCtrl,
                   gasCtrl: gasCtrl,
-                )
+                  busy: busy,
+                  submit: calculate,
+                ),
         ],
       ),
     );
   }
 
   Future calculate() async {
-    double.parse(gasCtrl.text.replaceAll(new RegExp(r'[,.]'), '')) / 100;
-    double.parse(alcCtrl.text.replaceAll(new RegExp(r'[,.]'), '')) / 100;
+    double alc =
+        double.parse(alcCtrl.text.replaceAll(new RegExp(r'[,.]'), '')) / 100;
+    double gas =
+        double.parse(gasCtrl.text.replaceAll(new RegExp(r'[,.]'), '')) / 100;
+    double res = alc / gas;
 
-    setState(() {
-      busy = true;
-      completed = false;
+    setState(
+      () {
+        completed = false;
+        busy = true;
+      },
+    );
+
+    return new Future.delayed(const Duration(milliseconds: 1500), () {
+      setState(() {
+        if (res >= 0.7) {
+          resultText = "Compensa utilizar Gasolina";
+        } else {
+          resultText = "Compensa utilizar Álcool";
+        }
+
+        completed = true;
+        busy = false;
+      });
     });
+  }
+
+  reset() {
+    alcCtrl = new MoneyMaskedTextController();
+    gasCtrl = new MoneyMaskedTextController();
+    busy = false;
+    completed = false;
   }
 }

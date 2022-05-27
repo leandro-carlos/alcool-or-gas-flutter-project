@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class loadingButton extends StatelessWidget {
   var busy = false;
   var invert = false;
-  late Function func;
+  Function()? func;
   var text = "";
 
   loadingButton({
@@ -34,7 +34,7 @@ class loadingButton extends StatelessWidget {
                   : Colors.white.withOpacity(0.8),
             ),
             child: TextButton(
-              onPressed: () {},
+              onPressed: func,
               child: Text(
                 text,
                 style: TextStyle(

@@ -5,7 +5,7 @@ import 'package:alcool_or_gas/widgetes/form.widget.dart';
 
 class submitForm extends StatelessWidget {
   var busy = false;
-  Function submit;
+  Function() submit;
   var gasCtrl = MoneyMaskedTextController();
   var alcCtrl = MoneyMaskedTextController();
 
